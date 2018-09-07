@@ -1,0 +1,6 @@
+aws s3 mb s3://bucket-name – Új bucket
+aws s3 ls – bucketek kilistázása
+aws s3 ls s3://bucket-name – egy adott bucket tartalma
+aws s3 cp file.txt s3://my-bucket/ - egy file bucketbe másolása
+aws s3 sync <source> <target> - szinkronizáció a forrás és a cél között
+aws s3 cp s3://bucket-name/ /work –recursive – a bucket teljes tartalmának másolása
