@@ -1,0 +1,6 @@
+Default user: ec2-user
+sudo yum update -y
+sudo yum install mc httpd.x86_64 –y
+cd /var/www/html/
+sudo wget -r -nd -l1 --no-parent http://s3-bucket-example-2018.s3-website-eu-west-1.amazonaws.com/
+sudo service httpd start
