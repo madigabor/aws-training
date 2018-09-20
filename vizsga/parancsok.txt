@@ -1,0 +1,34 @@
+PHP és WordPress telepítése
+
+sudo yum update -y
+sudo yum install mc httpd.x86_64 –y
+sudo yum install php.x86_64 php-mysqlnd.x86_64 -y
+wget https://wordpress.org/latest.tar.gz
+sudo tar -xzf latest.tar.gz
+sudo cp -r wordpress/* /var/www/html/
+sudo chown -R apache /var/www
+sudo chgrp -R apache /var/www
+sudo chmod 2775 /var/www
+find /var/www -type d -exec sudo chmod 2775 {} \;
+find /var/www -type f -exec sudo chmod 0664 {} \;
+sudo systemctl restart httpd.service 
+
+Streszteszt-hez szükséges UserData
+
+#!/bin/bash
+sudo yum update -y
+sudo systemctl restart httpd.service 
+sudo yum install stress -y
+sudo stress --cpu 1 --timeout 500
+
+
+SQL update WordPress
+
+sudo yum install mysql 
+mysql -h {RDSendpint} -P 3306 -u {adatbázisuernév} -p
+USE {adatbázisnév}
+
+UPDATE wp_options SET option_value = replace(option_value, ’{EC2domain}', ’{ELBdomain}') WHERE option_name = 'home' OR option_name = 'siteurl';
+UPDATE wp_posts SET guid = replace(guid, ’{EC2domain}', ’{ELBdomain}');
+UPDATE wp_posts SET post_content = replace(post_content, ’{EC2domain}', ’{ELBdomain}');
+UPDATE wp_postmeta SET meta_value = replace(meta_value, ’{EC2domain}', ’{ELBdomain}');
