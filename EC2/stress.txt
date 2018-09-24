@@ -1,0 +1,4 @@
+#!/bin/bash
+sudo yum update -y
+sudo yum install stress -y
+sudo stress --cpu 1 --timeout 800
