@@ -1,4 +1,4 @@
-sudo yum install -y php.x86_64 php-mysqlnd.x86_64
+sudo yum install -y mc php.x86_64 php-mysqlnd.x86_64
 sudo amazon-linux-extras install epel
 sudo yum install -y phpMyAdmin
 sudo systemctl restart httpd.service 
