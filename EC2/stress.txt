@@ -1,4 +1,7 @@
 #!/bin/bash
 sudo yum update -y
+sudo yum repolist all
+sudo yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 sudo yum install stress -y
 sudo stress --cpu 1 --timeout 800
+
