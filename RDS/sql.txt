@@ -1,0 +1,11 @@
+sudo yum install -y php.x86_64 php-mysqlnd.x86_64
+sudo amazon-linux-extras install epel
+sudo yum install -y phpMyAdmin
+sudo systemctl restart httpd.service 
+
+
+/etc/httpd/conf.d/phpMyAdmin.conf 
+IP cím engedélyezés
+
+ /etc/phpmyadmin/config.inc.php
+RDS elérések hozzáadása 
