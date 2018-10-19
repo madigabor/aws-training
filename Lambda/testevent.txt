@@ -1,0 +1,16 @@
+GET
+
+{
+  "httpMethod": "GET",
+  "queryStringParameters": {
+    "TableName": "bar"
+  }
+}
+
+POST
+
+
+{
+  "httpMethod": "POST",
+  "body": "{ \"TableName\": \"bar\", \"Item\": {\"id\":\"1\",\"name\":\"Opel Astra\"}   }"
+}
